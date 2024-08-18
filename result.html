@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('/static/images/resultimg.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.4); /* Lighter background color */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        h1 {
+            text-align: center;
+            color: black;
+            margin-bottom: 20px;
+        }
+        .result {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.5em;
+            color: #B554AF;
+            animation: zoomIn 1s ease-in-out;
+        }
+        .summary, .metrics, .graphs {
+            margin-top: 20px;
+        }
+        .summary-container, .metrics-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .summary h3, .metrics h3, .graphs h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .summary ul, .metrics table {
+            padding-left: 20px;
+            margin: 0 auto;
+        }
+        .summary li, .metrics td {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+        }
+        .metrics table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .metrics th, .metrics td {
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        .graphs img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-link a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+        .back-link a:hover {
+            color: #0056b3;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.9); }
+            to { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CLASSIFICATION RESULT</h1>
+        
+        <div class="result">
+            <h2>RESULT: {{ result }}</h2>
+        </div>
+        
+        <div class="summary-container">
+            <div class="summary">
+                <h3>Project Summary</h3>
+                <p>This project utilizes a Convolutional Neural Network (CNN) to classify images. The model has been trained on a dataset to recognize specific patterns and features. Here are the key steps involved in the project:</p>
+                <ul>
+                    <li>Image Preprocessing: The uploaded image is resized and normalized before feeding it to the model.</li>
+                    <li>Model Prediction: The preprocessed image is passed through the CNN model to get the classification result.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="metrics-container">
+            <div class="metrics">
+                <h3>Classification Metrics</h3>
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>Precision</th>
+                        <th>Recall</th>
+                        <th>F1-score</th>
+                        <th>Support</th>
+                    </tr>
+                    <tr>
+                        <td>a_no_idc</td>
+                        <td>0.87</td>
+                        <td>0.93</td>
+                        <td>0.90</td>
+                        <td>132</td>
+                    </tr>
+                    <tr>
+                        <td>b_has_idc</td>
+                        <td>0.93</td>
+                        <td>0.86</td>
+                        <td>0.89</td>
+                        <td>133</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">Accuracy: 0.90</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="graphs">
+            <h3>Prediction Details</h3>
+            <p>Below is a detailed view of the Confusion Matrix</p>
+            <img src="/static/images/confusionmatrix.png" alt="Confusion Matrix">
+        </div>
+        
+        <div class="back-link">
+            <a href="/">Upload another image</a>
+        </div>
+    </div>
+</body>
+</html>

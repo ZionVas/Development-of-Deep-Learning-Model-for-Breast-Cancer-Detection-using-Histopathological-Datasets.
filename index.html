@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification</title>
+    <style>
+        @keyframes fade {
+            0% { opacity: 0; transform: translateY(-20px); }
+            50% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+        @keyframes popin {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('/static/images/finalbcimg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #212529;
+            margin: 0;
+            padding: 0;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        .container {
+            max-width: 500px;
+            margin: 60px auto;
+            padding: 30px;
+            background-color: transparent;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(3, 3, 3, 3);
+            position: relative;
+            z-index: 1;
+            animation: popin 0.5s ease-out;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            color: black;
+        }
+        p {
+            text-align: center;
+            font-size: 1.1rem;
+            color: black;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        input[type="file"] {
+            font-size: 1rem;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"] {
+            background-color: #2F0A44;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: purple;
+        }
+        .notifications {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 90%;
+            max-width: 400px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 1rem;
+            color: #007bff;
+            animation: fade 5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1><c>IMAGE CLASSIFICATION</c></h1>
+        <p><b>Upload an image to classify it using a pre-trained Convolutional Neural Network (CNN). The model is trained to detect specific features from the image and provide a classification result.</b></p>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <input type="submit" value="UPLOAD">
+        </form>
+    </div>
+    <div class="notifications">
+        <span id="notification-text">Get regular mammograms.</span>
+    </div>
+    <script>
+        const notifications = [
+            "Get regular mammograms.",
+            "Maintain a healthy weight.",
+            "Exercise regularly.",
+            "Limit alcohol consumption.",
+            "Know your family history."
+        ];
+        let currentIndex = 0;
+        const notificationText = document.getElementById('notification-text');
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % notifications.length;
+            notificationText.textContent = notifications[currentIndex];
+        }, 5000);
+    </script>
+</body>
+</html>
