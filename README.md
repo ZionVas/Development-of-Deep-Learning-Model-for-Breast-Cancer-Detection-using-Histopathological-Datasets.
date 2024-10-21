@@ -1,5 +1,5 @@
 # Development-of-Deep-Learning-Model-for-Breast-Cancer-Detection-using-Histopathological-Datasets.
-#Introduction
+# Introduction
 Approximately one in eight ladies worldwide suffer from Breast Cancer (BC). By identifying the cancer of the breast tissue cells, BC is diagnosed. Histopathology images taken with a microscope are processed using various algorithms and approaches using modern medical image processing systems. Medical images and pathology tools are now processed by machine learning algorithms. Since manually identifying cancer cells is a laborious process that is prone to human mistake, computer-aided mechanisms are used instead of manual pathological detection systems to get better results. This is typically accomplished in Deep Learning (DL) by first utilizing a Convolutional Neural Network (CNN) to extract features, followed by a fully connected network for classification. Since DL doesn't require prior knowledge in a related discipline, it is widely used in the medical imaging industry.
 
 # Dataset
